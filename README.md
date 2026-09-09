@@ -1,8 +1,10 @@
 # iOS-Forensics
 
 Working notes and workflows for forensic acquisition and **security/exploit
-research** on mobile & embedded devices. Initial focus: an **iPod touch 6th gen
-(iPod7,1) on iOS 12.4.8** fielded as a medical **patient programmer/controller**.
+research** on mobile & embedded devices. Initial focus: an **iPod touch 6th gen (iPod7,1) on iOS 12.4.8** running Abbott/
+St. Jude Medical's **"Patient Ctrl" (Patient Controller, Model 3875)** neuro-
+stimulation app. The unit is brand new — unmanaged, unlocked, no patient data — so
+the work is **app + BLE protocol research**, not data recovery.
 
 > **Scope & ethics:** research on devices you own/are authorized to test. Do not
 > operate against hardware actively connected to a patient; keep units RF-isolated;
@@ -21,6 +23,7 @@ system extraction without modifying the on-disk OS.
 | 03 | [Device matrix](docs/03-device-matrix.md) | Tool fit for checkm8 iOS, **A12+ iOS**, **Android**, **embedded/medical** |
 | 04 | [Forensic tool catalog](docs/04-forensic-tools.md) | Free vs commercial, with recommendations for your device mix |
 | 05 | [Exploit-research workflow](docs/05-exploit-research.md) | Frida/objection, Ghidra, LLDB, RF/network, MVT |
+| 06 | [St. Jude 3875 Patient Controller](docs/06-stjude-3875-patient-controller.md) | App identification + BLE/GATT protocol, auth & therapy-limit research plan |
 
 ## Quick start (iPod touch 6G, no passcode)
 ```bash

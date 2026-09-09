@@ -1,9 +1,13 @@
 # Imaging the iPod touch 6G (iOS 12.4.8) — Patient Programmer/Controller
 
-> **Context:** Device fielded as a medical *patient programmer / controller*. Purpose
-> of this workflow: **security & exploit research** (studying the controller app and
-> iOS internals), **no user passcode set**. Toolchain: free-first, with commercial
-> callouts where they clearly win.
+> **Context:** Device is an Abbott/St. Jude Medical *patient controller*, but it is
+> **brand new / never used**: **not** supervised, **not** MDM-managed, **not**
+> passcode-locked, and it holds **no patient data**. The only medical artifact is the
+> **"Patient Ctrl" (Patient Controller, Model 3875)** app. So this is purely
+> **software & protocol research** — there is nothing to preserve for evidence.
+> Toolchain: free-first, with commercial callouts where they clearly win.
+> See [`docs/06-stjude-3875-patient-controller.md`](06-stjude-3875-patient-controller.md)
+> for the app-specific research plan.
 
 ## 0. Why this device is easy: `checkm8`
 
@@ -19,10 +23,10 @@ Consequences:
 
 ## 1. Pre-acquisition (do this first)
 
-1. **Photograph & log** the unit, serial, screen state. Start an acquisition log
-   (see `templates/acquisition-log.md`) and keep SHA-256 of every image you produce.
-2. **Isolate RF**: keep it in a Faraday bag / airplane mode until acquisition to
-   prevent remote wipe or telemetry to the medical base station.
+1. **Photograph & log** the unit and serial (light-touch — no patient data / no legal
+   hold here). Still keep SHA-256 of every image so results are reproducible.
+2. **RF hygiene**: no patient/IPG is paired, so remote-wipe risk is nil. Keep BLE off
+   until you deliberately study pairing, so the app doesn't bond with a stray IPG.
 3. **Enumerate before touching anything** (no jailbreak needed):
    ```bash
    ideviceinfo                      # UDID, iOS build, model (iPod7,1 = 6G)
